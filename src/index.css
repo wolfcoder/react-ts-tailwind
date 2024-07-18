@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: light;
+        font-weight: 300;
+        font-display: swap;
+        src: url(assets/fonts/proximanova-light.otf) format('otf');
+    }
+
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(assets/fonts/proximanova-regular.otf) format('otf');
+    }
+
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(assets/fonts/proximanova-semibold.otf) format('otf');
+    }
+
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(assets/fonts/proximanova-bold.otf) format('otf');
+    }
+
+    @font-face {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(assets/fonts/proximanova-extrabold.otf) format('otf');
+    }
+}
+
+/* Step 1: Define a base font size */
+html {
+    font-size: 16px;
+    /* This is typically the default, but you can set it explicitly */
+}
+
+/* Step 2 & 3: Use a media query for mobile devices */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+        /* Decrease the base font size for mobile devices */
+    }
+}
+
+
+.bg-vtd-primary-500 {
+    @apply bg-VINBlue w-[2rem] h-[2rem] !important;
+}
