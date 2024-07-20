@@ -14,12 +14,15 @@ export default {
         VINBlueLight: "#6CACE4",
         VINBlueLighter: "#eff5ff",
         VINGold: "#B3A369",
+        VINYellowLight: "#F7F7F7",
+        VINBrown: "#D7D2CB",
         VINRed: "#C54644",
         
       },
 
     },
   },
-  plugins: [],
+  // eslint-disable-next-line no-undef
+  plugins: [require("@tailwindcss/forms")],
 }
 
