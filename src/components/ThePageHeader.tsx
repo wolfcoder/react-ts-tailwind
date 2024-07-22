@@ -1,3 +1,4 @@
+import React from 'react';
 import iconHome from '../assets/icons/iconHome.svg';
 import iconArrowNext from '../assets/icons/iconArrowNext.svg';
 
