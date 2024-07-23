@@ -1,7 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import iconSearch from '../assets/icons/iconSearch.svg'
 
-export default function SearchBarAndClear() {
+function SearchBarAndClear() {
+    const navigate = useNavigate();
+    const handleSearch = () => {
+        navigate('/keyword-info/information');
+    };
+
     return (
         <div>
             <label htmlFor="search-keyword" className="text-sm font-medium leading-6 text-gray-900 hidden">
@@ -14,10 +20,11 @@ export default function SearchBarAndClear() {
                         name="search-keyword"
                         type="text"
                         placeholder="lymphoma"
-                        className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-VINBrown placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:border-[#6CACE4]   focus:ring-[#6CACE4] focus:ring-opacity-50 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-none rounded-l-md border-0 py-2 pl-4 text-gray-900 ring-1 ring-inset ring-VINBrown placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:border-[#6CACE4]   focus:ring-[#6CACE4] focus:ring-opacity-50 sm:text-sm sm:leading-6"
                     />
                 </div>
                 <button
+                    onClick={handleSearch}
                     type="button"
                     className="relative -ml-px inline-flex items-center p-2  text-gray-900 ring-1 ring-inset ring-VINBlue hover:ring-VINBlueHover bg-VINBlue hover:bg-VINBlueHover active:ring-VINBlueLight"
                 >
@@ -33,3 +40,5 @@ export default function SearchBarAndClear() {
         </div>
     )
 }
+
+export default SearchBarAndClear;
