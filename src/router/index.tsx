@@ -11,34 +11,49 @@ const routes = [
     {
         path: "/",
         element: <HomePage />,
-        // errorElement: <ErrorPage />
+        // errorelement: <ErrorPage />
     },
     {
         path: "keyword-info",
         id: "keywordinfo",
         element: <KWLayout />,
         children: [{
+            name: "Information",
             path: "information",
             id: "information",
             element: <InformationLayout />,
             children: [
-                {path: "VINcyclopedia", element: (<h2>VINcyclopedia</h2>)},
-                { path: "images", element: (<h2>Images</h2>) },
-                { path: "videos", element: (<h2>Videos</h2>) }
+                {
+                    name: "VINcyclopedia", path: "/keyword-info/information/VINcyclopedia", element: (<h2>VINcyclopedia</h2>),
+                    
+                },
+                { name: "Images", path: "/keyword-info/information/images", element: (<h2>Images</h2>) },
+                { name: "Client Ed", path: "/keyword-info/information/client-ed", element: <h2>Client Ed</h2> },
+                { name: "Videos", path: "/keyword-info/information/videos" },
+                { name: "Medical FAQs", path: "/keyword-info/information/medical-faqs" },
+                { name: "Rounds", path: "/keyword-info/information/rounds" },
+                { name: "Proceedings", path: "/keyword-info/information/proceedings" },
+                { name: "More", path: "/keyword-info/information/more" }
             ]
         },
         {
+            name: "Clinical Case",
             path: "clinical-case",
-            element: <ClinicalCasesLayout/>
+            element: <ClinicalCasesLayout />
         },
         {
+            name: "Related Topics",
             path: "related-topics",
-            element: <RelatedTopicsLayout/>
-        }]
+            element: <RelatedTopicsLayout />
+        }
+
+    ]
     }
 ];
 
 const router = createBrowserRouter(
     routes
 );
+
+
 export default router;

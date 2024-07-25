@@ -1,41 +1,35 @@
 import React from "react";
 import TabContent from "../components/TabContent";
 import { NavLink, Outlet } from "react-router-dom";
+import routes from "../router";
+import MainContent from "../components/MainContent";
 
-function InformationLayout() {
+const InformationLayout = () => {
+    const tabs = routes.routes[1]?.children[0]?.children ?? [];
 
-    const tabs = [
-        { id: 1, name: "VINcyclopedia", path: "/keyword-info/information/VINcyclopedia" },
-        { id: 2, name: "Images", path: "/keyword-info/information/images" },
-        { id: 3, name: "Client Ed", path: "/keyword-info/information/client-ed" },
-        { id: 4, name: "Videos", path: "/keyword-info/information/videos" },
-        { id: 5, name: "Medical FAQs", path: "/keyword-info/information/medical-faqs" },
-        { id: 6, name: "Rounds", path: "/keyword-info/information/rounds" },
-        { id: 7, name: "Proceedings", path: "/keyword-info/information/proceedings" },
-        { id: 8, name: "More", path: "/keyword-info/information/more" }
-    ];
-
+    const getNavLinkClass = (isActive: boolean) =>
+        isActive ?
+            'text-VINBlueMiddle border-b-VINBlueMiddle border-b-4 mr-14 cursor-pointer font-semibold text-sm' :
+            'text-VINBlue border-b-none border-b-0 mr-14 cursor-pointer font-semibold text-sm';
 
     return (
-        <>
-            <TabContent>
-                <nav className="flex -mb-px border-b pb-6">
-                    {tabs.map((tab) => (
-                        <NavLink
-                            key={tab.id}
-                            to={tab.path}
-                            className={({ isActive }) => (isActive ?
-                                'text-VINBlueHover border-b-none border-b-0 mr-14  cursor-pointer font-semibold  text-sm' :
-                                'text-VINBlue border-b-none border-b-0 mr-14 cursor-pointer font-semibold  text-sm')}
-                        >
-                            {tab.name}
-                        </NavLink>
-                    ))}
-                </nav >
+        <TabContent>
+            <nav className="flex -mb-px border-b pb-4">
+                {tabs.map((tab: { id: string, path?: string, name?: string }) => (
+                    <NavLink
+                        key={tab.id}
+                        to={tab.path ?? ''}
+                        className={({ isActive }) => getNavLinkClass(isActive)}
+                    >
+                        {tab.name ?? ''}
+                    </NavLink>
+                ))}
+            </nav>
+            <MainContent>
                 <Outlet />
-            </TabContent>
-        </>
-    )
-}
+            </MainContent>
+        </TabContent>
+    );
+};
 
 export default InformationLayout;

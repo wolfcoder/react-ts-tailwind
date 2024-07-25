@@ -11,7 +11,7 @@ export default {
       },
       colors: {
         VINBlue: "#002855",
-        VINBlueHover: "#0861CE",
+        VINBlueMiddle: "#0861CE",
         VINBlueLight: "#6CACE4",
         VINBlueLighter: "#eff5ff",
         VINGold: "#B3A369",
